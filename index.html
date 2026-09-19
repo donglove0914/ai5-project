@@ -47,7 +47,7 @@ const AI5_CONFIG = {
 <h1>AI<span class="grad">5</span></h1>
 <h2>Five Leaders. One Token.</h2>
 <p>AI5는 AI 시대를 대표하는 5개 테마 자산을 하나의 아이디어로 연결하는 Robinhood Chain 기반 커뮤니티 토큰 프로젝트입니다.</p>
-<div class="actions"><a class="btn" href="https://pair.fund/tokens/0x4b0cc13f8734af13fc42ff21bc3ca1013b825555" target="_blank" rel="noopener noreferrer">🚀 PAIR에서 AI5 거래하기</a><a class="btn alt" href="#about">프로젝트 알아보기</a></div>
+<div class="actions"><a class="btn" href="https://pair.fund/tokens/0x4b0cc13f8734af13fc42ff21bc3ca1013b825555" target="_blank" rel="noopener noreferrer">🚀 PAIR에서 AI5 거래하기</a><a id="pair-main-btn" class="btn alt" href="#about">프로젝트 알아보기</a></div>
 </header>
 <section id="live">
   <h2 class="title">🔥 AI5 LIVE</h2>
@@ -184,7 +184,11 @@ data.pairs.forEach(pair => {
     ['msft','googl','amzn','pltr','amd'].forEach(s => document.getElementById('pair-' + s).textContent = '-');
   }
 }
+const pairMainBtn = document.getElementById('pair-main-btn');
 
+if (pairMainBtn) {
+  pairMainBtn.href = AI5_CONFIG.pairUrl;
+}
 loadAI5Data();
 setInterval(loadAI5Data, 60000);
 </script>  
