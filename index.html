@@ -185,7 +185,11 @@ async function loadAI5Data() {
 
     const data = await response.json();
 
-    const mainPair = data.pairs[0];
+    const mainPair = data.pairs && data.pairs.length > 0 ? data.pairs[0] : null;
+
+if (!mainPair) {
+  throw new Error("AI5 pair not found");
+}
 
 document.getElementById('ai5-price').textContent =
 '$ ' + Number(mainPair.priceUsd).toFixed(8);
@@ -201,7 +205,7 @@ document.getElementById('ai5-change').textContent =
 Number(mainPair.priceChange.h24).toFixed(2) + '%';
 
 document.getElementById('ai5-change').style.color =
-pair.priceChange.h24 >= 0 ? '#22c55e' : '#ef4444';
+mainPair.priceChange.h24 >= 0 ? '#22c55e' : '#ef4444';
 data.pairs.forEach(pair => {
   const symbol = pair.quoteToken.symbol.toLowerCase();
   const el = document.getElementById('pair-' + symbol);
