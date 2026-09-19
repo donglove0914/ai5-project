@@ -41,10 +41,10 @@ const AI5_CONFIG = {
 </head>
 <body>
 <div class="wrap">
-<nav class="nav"><div class="brand">AI<span class="grad">5</span></div><div class="pill">Robinhood Chain • Community Project</div></nav>
+<nav class="nav"><div class="brand"><span id="token-name"></span></div><div class="pill">Robinhood Chain • Community Project</div></nav>
 <header class="hero">
 <div class="eyebrow">🚀 AI5 IS NOW LIVE ON ROBINHOOD CHAIN</div>
-<h1>AI<span class="grad">5</span></h1>
+<h1><span id="main-token-name"></span></h1>
 <h2>Five Leaders. One Token.</h2>
 <p>AI5는 AI 시대를 대표하는 5개 테마 자산을 하나의 아이디어로 연결하는 Robinhood Chain 기반 커뮤니티 토큰 프로젝트입니다.</p>
 <div class="actions"><a class="btn" href="https://pair.fund/tokens/0x4b0cc13f8734af13fc42ff21bc3ca1013b825555" target="_blank" rel="noopener noreferrer">🚀 PAIR에서 AI5 거래하기</a><a id="pair-main-btn" class="btn alt" href="#about">프로젝트 알아보기</a></div>
@@ -139,6 +139,16 @@ const AI5_CONFIG = {
   
 </script>  
 <script>
+const tokenName = document.getElementById('token-name');
+
+if (tokenName) {
+  tokenName.innerHTML = AI5_CONFIG.name;
+}  
+const mainTokenName = document.getElementById('main-token-name');
+
+if (mainTokenName) {
+  mainTokenName.innerHTML = AI5_CONFIG.name;
+}  
 async function loadAI5Data() {
   try {
     const response = await fetch('https://pair.fund/api/tokens/' + AI5_CONFIG.contract);
@@ -184,6 +194,7 @@ data.pairs.forEach(pair => {
     ['msft','googl','amzn','pltr','amd'].forEach(s => document.getElementById('pair-' + s).textContent = '-');
   }
 }
+document.title = AI5_CONFIG.name + " – " + AI5_CONFIG.symbol + " Community Token";  
 const pairMainBtn = document.getElementById('pair-main-btn');
 
 if (pairMainBtn) {
