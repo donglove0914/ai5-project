@@ -185,20 +185,20 @@ async function loadAI5Data() {
 
     const data = await response.json();
 
-    const pair = data.pairs[0];
+    const mainPair = data.pairs[0];
 
 document.getElementById('ai5-price').textContent =
-'$ ' + Number(pair.priceUsd).toFixed(8);
+'$ ' + Number(mainPair.priceUsd).toFixed(8);
 
 document.getElementById('ai5-volume').textContent =
-'$ ' + Number(pair.volume.h24).toLocaleString();
+'$ ' + Number(mainPair.volume.h24).toLocaleString();
 
 document.getElementById('ai5-mcap').textContent =
-'$ ' + Number(pair.fdv).toLocaleString();
+'$ ' + Number(mainPair.fdv).toLocaleString();
 
 document.getElementById('ai5-change').textContent =
 (pair.priceChange.h24 >= 0 ? '+' : '') +
-Number(pair.priceChange.h24).toFixed(2) + '%';
+Number(mainPair.priceChange.h24).toFixed(2) + '%';
 
 document.getElementById('ai5-change').style.color =
 pair.priceChange.h24 >= 0 ? '#22c55e' : '#ef4444';
