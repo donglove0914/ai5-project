@@ -158,9 +158,9 @@ const socialLinks = document.getElementById('social-links');
 
 if (socialLinks) {
 socialLinks.innerHTML = `
-<a class="btn" href="${AIS_CONFIG.website}" target="_blank">🌐 Website</a>
-<a class="btn alt" href="${AIS_CONFIG.twitter}" target="_blank">𝕏 X</a>
-<a class="btn alt" href="${AIS_CONFIG.telegram}" target="_blank">💬 Telegram</a>
+<a class="btn" href="${AI5_CONFIG.website}" target="_blank">🌐 Website</a>
+<a class="btn alt" href="${AI5_CONFIG.twitter}" target="_blank">𝕏 X</a>
+<a class="btn alt" href="${AI5_CONFIG.telegram}" target="_blank">💬 Telegram</a>
 `;
 }  
 const mainTokenName = document.getElementById('main-token-name');
@@ -176,7 +176,7 @@ if (description) {
 async function loadAI5Data() {
   try {
     const response = await fetch(
-  'https://api.dexscreener.com/latest/dex/tokens/' + AIS_CONFIG.contract
+  'https://api.dexscreener.com/latest/dex/tokens/' + AI5_CONFIG.contract
 );
 
     if (!response.ok) {
@@ -197,7 +197,7 @@ document.getElementById('ai5-mcap').textContent =
 '$ ' + Number(mainPair.fdv).toLocaleString();
 
 document.getElementById('ai5-change').textContent =
-(pair.priceChange.h24 >= 0 ? '+' : '') +
+(mainPair.priceChange.h24 >= 0 ? '+' : '') +
 Number(mainPair.priceChange.h24).toFixed(2) + '%';
 
 document.getElementById('ai5-change').style.color =
