@@ -38,7 +38,7 @@ const AI5_CONFIG = {
   ],
 description: "AI 시대를 대표하는 5개 테마를 연결하는 Robinhood Chain 기반 커뮤니티 토큰",
 logo: "",
-website: "",
+website: "https://ai5-project.vercel.app",
 twitter: "",
 telegram: "",
 dex: "PAIR"
@@ -53,6 +53,7 @@ dex: "PAIR"
 <h1><span id="main-token-name"></span></h1>
 <h2>Five Leaders. One Token.</h2>
 <p>AI5는 AI 시대를 대표하는 5개 테마 자산을 하나의 아이디어로 연결하는 Robinhood Chain 기반 커뮤니티 토큰 프로젝트입니다.</p>
+<p id="token-description"></p>  
 <div class="actions"><a class="btn" href="https://pair.fund/tokens/0x4b0cc13f8734af13fc42ff21bc3ca1013b825555" target="_blank" rel="noopener noreferrer">🚀 PAIR에서 AI5 거래하기</a><a id="pair-main-btn" class="btn alt" href="#about">프로젝트 알아보기</a></div>
 </header>
 <section id="live">
@@ -133,6 +134,9 @@ dex: "PAIR"
        href="https://dexscreener.com/robinhood/0xbad1adcf037a92374d6949b652f823ff55176a838804462eb33a61508c16c32d"
        target="_blank"
        rel="noopener noreferrer">📈 DexScreener</a>
+    
+<div id="social-links" class="actions"></div>    
+    
   </div>
 </section>  
 <section><h2 class="title">Official Contract</h2><p class="sub">AI5가 PAIR을 통해 공식 런치되었습니다. 아래 주소가 AI5의 공식 컨트랙트 주소입니다.</p>
@@ -150,10 +154,24 @@ const tokenName = document.getElementById('token-name');
 if (tokenName) {
   tokenName.innerHTML = AI5_CONFIG.name;
 }  
+const socialLinks = document.getElementById('social-links');
+
+if (socialLinks) {
+socialLinks.innerHTML = `
+<a class="btn" href="${AIS_CONFIG.website}" target="_blank">🌐 Website</a>
+<a class="btn alt" href="${AIS_CONFIG.twitter}" target="_blank">𝕏 X</a>
+<a class="btn alt" href="${AIS_CONFIG.telegram}" target="_blank">💬 Telegram</a>
+`;
+}  
 const mainTokenName = document.getElementById('main-token-name');
 
 if (mainTokenName) {
   mainTokenName.innerHTML = AI5_CONFIG.name;
+}  
+const description = document.getElementById('token-description');
+
+if (description) {
+  description.innerHTML = AI5_CONFIG.description;
 }  
 async function loadAI5Data() {
   try {
